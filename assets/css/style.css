@@ -1,0 +1,257 @@
+/* ---- Google Fonts ------*/
+@import url("https://fonts.googleapis.ocm/css2?family=Poppins:wgth@400;500&display=swap");
+/* ---- Variaveis CSS ----*/
+:root{
+    --header-height: 3rem;
+
+    /* --- Cores --- */
+    --first-color: #3664f4;
+    --dark-color: #070D1F;
+    --Dark-color-alt: #282B3A;
+    --white-color: #e6e7e9;
+
+    /* --- Fontes --- */
+
+    --body-font: 'Poppins', sans-serif;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+
+    /* --- z index --- */
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+    }
+}
+
+    /* --- Base --- */
+*,::before, ::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.bg-grid{
+    max-width: 1024px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+
+}
+/* --- HEADER --- */
+.header{
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 1.5rem;
+    background-color: var(--dark-color);
+    z-index: var(--z-fixed);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo{
+    color: var(--white-color)
+}
+
+.header_toggle{
+    font-size: 1.5rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+/* --- NAV --- */
+
+@media screen and (max-width: 768px){
+    .nav{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background-color: var(--dark-color);
+        color: var(--white-color);
+        width: 100%;
+        height: 100vh;
+        padding: 1.5rem 0;
+        z-index: var(--z-fixed);
+        transition: .5s;
+    }
+}
+
+.nav_content{
+    height: 100%;
+    grid-template-rows: max-content 1fr max-content;
+    row-gap: 2rem;
+}
+
+.nav_close{
+    position: absolute;
+    right: 1.5rem;
+    font-size: 1.3rem;
+    padding: .25rem;
+    background-color: var(--Dark-color-alt);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav_img{
+    display: flex;
+    justify-content: center;
+    padding-top: .25rem;
+    margin-bottom: .8rem;
+    width: 56px;
+    height: 56px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.nav_img img{
+    width: 46px;
+}
+
+.nav_name{
+    display: block;
+    color: var(--white-color);
+}
+
+.nav_profision{
+    font-size: var(--small-font-size);
+}
+
+.nav_menu{
+    align-self: center;
+}
+
+.nav_item{
+    margin: 2.5rem 0;
+}
+
+.nav_link{
+    color: var(--white-color);
+}
+
+.nav_social{
+    padding-top: .5rem;
+}
+
+.nav_social-icon{
+    font-size: 1.2rem;
+    color: var(--white-color);
+    margin-right: 1rem;
+}
+
+.nav_social-icon:hover{
+    color: var(--first-color);
+}
+
+/* --- Aparecer Menu --- */
+.show{
+    left: 0;
+}
+
+/* --- Ativar menu --- */
+.active{
+    color: var(--first-color);
+}
+
+/* --- media queries --- */
+@media screen and (min-width: 768px){
+    body{
+        margin: 0;
+    }
+
+    .header{
+        height: calc(var(--header-height) + 1rem);
+    }
+
+    .header_logo, .header_toggle{
+        display: none;
+    }
+
+    .nav{
+        width: 100%;
+    }
+
+    .nav_content{
+        grid-template-columns: repeat(3, max-content);
+        grid-template-rows: 1fr;
+        column-gap: 1rem;
+        justify-content: space-between;
+    }
+
+    .nav_close, .nav_profision{
+        display: none;
+    }
+
+    .nav_perfil{
+        display: flex;
+        align-items: center;
+    }
+
+    .nav_img{
+        width: 32px;
+        height: 32px;
+        margin-right: .5rem;
+        margin-bottom: 0;
+        align-items: center;
+    }
+
+    .nav_img img{
+        width: 26px;
+    }
+
+    .nav_list{
+        display: flex;
+    }
+
+    .nav_item{
+        margin: 0 .25rem;
+    }
+
+    .nav_link{
+        padding: .5rem .8rem;
+        border-radius: .25rem;
+    }
+
+    .nav_link:hover{
+        background-color: var(--first-color);
+    }
+
+    .active{
+        background-color: var(--first-color);
+        color: var(--white-color);
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .bd-grid{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
